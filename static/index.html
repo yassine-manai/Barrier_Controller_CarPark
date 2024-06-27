@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+	<!--begin::Head-->
+	<head><base href="../"/>
+		<title> Barrier Managment System</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<!--begin::Fonts(mandatory for all pages)-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
+		<!--end::Fonts-->
+
+		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
+		<link href="/static/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="/static/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+		<script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
+	</head>
+	<!--end::Head-->
+
+
+	<!--begin::Body-->
+	<body id="kt_app_body" data-kt-app-layout="dark-header" data-kt-app-header-fixed="true" data-kt-app-toolbar-enabled="true" class="app-default">
+		<!--begin::Theme mode setup on page load-->
+		<script>var defaultThemeMode = "light"; var themeMode; if ( document.documentElement ) { if ( document.documentElement.hasAttribute("data-bs-theme-mode")) { themeMode = document.documentElement.getAttribute("data-bs-theme-mode"); } else { if ( localStorage.getItem("data-bs-theme") !== null ) { themeMode = localStorage.getItem("data-bs-theme"); } else { themeMode = defaultThemeMode; } } if (themeMode === "system") { themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; } document.documentElement.setAttribute("data-bs-theme", themeMode); }</script>
+		<!--end::Theme mode setup on page load-->
+
+		<!--begin::App-->
+		<div class="d-flex flex-column flex-root app-root flex-center" id="kt_app_root">
+			<!--begin::Page-->
+			<div class="app-page flex-column flex-column-fluid" id="kt_app_page">
+				<!--begin::Header-->
+				<div id="kt_app_header" class="app-header" data-kt-sticky="true" data-kt-sticky-activate="{default: true, lg: true}" data-kt-sticky-name="app-header-minimize" data-kt-sticky-offset="{default: '200px', lg: '0'}" data-kt-sticky-animation="false">
+					<!--begin::Header container-->
+					<div class="app-container container-xxl d-flex align-items-stretch justify-content-between" id="kt_app_header_container">
+						<!--begin::Logo-->
+						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
+							<a href="/static/index.html">
+								<img alt="Logo" src="/static/car.svg" class="h-20px h-lg-30px app-sidebar-logo-default" />
+							</a>
+						</div>
+						<!--end::Logo-->
+
+						<!--begin::Header wrapper-->
+						<div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+							<!--begin::Menu wrapper-->
+							<div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="{default: 'append', lg: 'prepend'}" data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
+								<!--begin::Menu-->
+								<div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0" id="kt_app_header_menu" data-kt-menu="true">
+									<!--begin:Menu item-->
+									<div data-kt-menu-placement="bottom-start" class="menu-item me-0 me-lg-2">
+										<!--begin:Menu link-->
+										<a href="/static/index.html" class="menu-link" id="test_menu">
+											<span class="menu-title">
+											Barriers
+											</span>
+										</a>
+										<!--end:Menu link-->
+									</div>
+									<!--end:Menu item-->
+
+									<!--begin:Menu item-->
+									<div data-kt-menu-placement="bottom-start" class="menu-item me-0 me-lg-2">
+										<!--begin:Menu link-->
+										<a href="/static/events.html" class="menu-link" id="test_menu">
+											<span class="menu-title">
+											Events
+											</span>
+										</a>
+										<!--end:Menu link-->
+									</div>
+
+									<!--end:Menu item-->
+
+									<!--begin:Menu item-->
+									<div data-kt-menu-placement="bottom-start" class="menu-item me-0 me-lg-2">
+										<!--begin:Menu link-->
+										<a href="/static/test.html" class="menu-link" id="test_menu">
+											<span class="menu-title">
+											Test
+											</span>
+										</a>
+										<!--end:Menu link-->
+									</div>
+									<!--end:Menu item-->
+
+								</div>
+								<!--end::Menu-->
+							</div>
+							<!--end::Menu wrapper-->
+
+							<!--begin::Navbar-->
+							<div class="app-navbar flex-shrink-0">
+								
+								<!--begin::User menu-->
+								<div class="app-navbar-item ms-1 ms-md-4" id="kt_header_user_menu_toggle">
+									<!--begin::Menu wrapper-->
+									<div class="cursor-pointer symbol symbol-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+										<img src="/static/blank.png" class="rounded-3" alt="user" />
+									</div>
+									<!--end::Menu wrapper-->
+								</div>
+								<!--end::User menu-->
+								<!--begin::Header menu toggle-->
+								<div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show header menu">
+									<div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px" id="kt_app_header_menu_toggle">
+										<i class="ki-duotone ki-element-4 fs-1">
+											<span class="path1"></span>
+											<span class="path2"></span>
+										</i>
+									</div>
+								</div>
+								<!--end::Header menu toggle-->
+								<!--begin::Aside toggle-->
+								<!--end::Header menu toggle-->
+							</div>
+							<!--end::Navbar-->
+						</div>
+						<!--end::Header wrapper-->
+					</div>
+					<!--end::Header container-->
+				</div>
+				<!--end::Header-->
+
+				<!--begin::Wrapper-->
+				<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
+					<!--begin::Main-->
+					<div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+						<!--begin::Content wrapper-->
+						<div class="d-flex flex-column flex-column-fluid">
+							<!--begin::Toolbar-->
+							<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+								<!--begin::Toolbar container-->
+								<div id="kt_app_toolbar_container" class="app-container container-l w-100 d-flex flex-stack">
+									
+								<!--begin::Tables Widget 11-->
+									<div class="card mb-5 mb-xl-10">
+										<!--begin::Header-->
+										<div class="card-header border-0 pt-5">
+											<h3 class="card-title align-items-start flex-column">
+												<span class="card-label fw-bold fs-3 mb-1">Barriers List</span>
+												<span class="text-muted mt-1 fw-semibold fs-7"></span>
+											</h3>
+
+
+											<div class="card-toolbar" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">
+												<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">
+												<i class="ki-duotone ki-plus fs-25" ></i>Add Barrier</a>
+											</div>
+										</div>
+										<!--end::Header-->
+										
+										<!--begin::Body-->
+										<div class="card-body py-3">
+											<!--begin::Table container-->
+											<div class="table-responsive">
+												<!--begin::Table-->
+												<table class="table align-middle gs-5 gy-4" id="barriersTable">
+													<!--begin::Table head-->
+													<thead>
+														<tr class="fw-bold text-muted bg-light">
+															<th class="min-w-80px">Lane ID</th>
+															<th class="min-w-60px">Name</th>
+															<th class="min-w-60px">Type</th>
+															<th class="min-w-100px">IP adresse</th>
+															<th class="min-w-75px">Port</th>
+															<th class="min-w-200px">Open Code</th>
+															<th class="min-w-200px">Close Code</th>
+															<th class="min-w-200px">Lock Code</th>
+															<th class="min-w-200px">Unlock Code</th>
+															<th class="min-w-150px">Actions</th>
+														</tr>
+													</thead>
+													<!--end::Table head-->
+
+													<!--begin::Table body-->
+													<tbody>
+														<!-- Data Dynamicly charged -->
+													</tbody>
+													<!--end::Table body-->
+												</table>
+												<!--end::Table-->
+											</div>
+											<!--end::Table container-->
+										</div>
+										<!--begin::Body-->
+									</div>
+									<!--end::Tables Widget 11-->
+									
+								</div>
+								<!--end::Toolbar container-->
+							</div>
+							<!--end::Toolbar-->
+
+									
+						</div>
+						<!--end::Content wrapper-->
+
+						<!--begin::Footer-->
+						<div id="kt_app_footer" class="app-footer">
+							<!--begin::Footer container-->
+							<div class="app-container container-xxl d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+								<!--begin::Copyright-->
+								<div class="text-dark order-2 order-md-1">
+									<span class="text-muted fw-semibold me-1">2024 &copy;</span>
+									<a class="text-gray-800 text-hover-primary">Barriers</a>
+								</div>
+								<!--end::Copyright-->
+
+								<!--begin::Menu-->
+								<ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
+									<li class="menu-item">
+										<a href="" target="_blank" class="menu-link px-2">About</a>
+									</li>
+									
+									<li class="menu-item">
+										<a href="" target="_blank" class="menu-link px-2">Support</a>
+									</li>
+								</ul>
+								<!--end::Menu-->
+							</div>
+							<!--end::Footer container-->
+						</div>
+						<!--end::Footer-->
+					</div>
+					<!--end:::Main-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+	<!--end::App-->
+		
+		<!--begin::Modal - Create App-->
+		<div class="modal fade" id="kt_modal_create_app" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-900px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header">
+
+						<!--begin::Modal title-->
+							<h2>Add barrier information</h2>
+						<!--end::Modal title-->
+
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-duotone ki-cross fs-1">
+								<span class="path1"></span>
+								<span class="path2"></span>
+							</i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--end::Modal header-->
+
+					<!--begin::Modal body-->
+					<div class="modal-body py-lg-10 px-lg-5">
+						<!--begin::Stepper-->
+						<div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_modal_create_app_stepper">
+
+							<!--begin::Content-->
+							<div class="flex-row-fluid py-lg-5 px-lg-5">
+								<!--begin::Form-->
+								<form class="form" novalidate="novalidate" id="kt_modal_create_app_form">
+									<!--begin::Step 1-->
+									<div class="current" data-kt-stepper-element="content">
+										<div class="w-100">
+											<!--begin::Input group-->
+											<div class="fv-row mb-10">
+												<!--begin::Label-->
+												<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+													<span  class="required" >Barrier Name</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier name">
+														<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+
+												<!--begin::Input-->
+												<input type="text" class="form-control form-control-lg form-control-solid" id="name" placeholder="Name" value="" />
+												<!--end::Input-->
+											</div>
+											<!--end::Input group-->
+
+
+											<!--begin::Input group-->
+											<div class="row mb-10">
+												<!--begin::Label-->
+
+												<div class="col">
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Lane ID</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier ID">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="id" placeholder="Lane ID" value="" />
+													<!--end::Input-->
+												</div>
+
+												<div class="col">
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="ms-1">Barrier Type</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier type">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--begin::Dropdown-->
+													<select class="form-select form-select-lg form-select-solid" id="barrierType">
+														<option> Type </option>
+														<option value="entry">Entry Barrier</option>
+														<option value="exit">Exit Barrier</option>
+													</select>
+													<!--end::Dropdown-->
+												</div>
+
+											</div>
+											<!--end::Input group-->
+
+											<!--begin::Input group--> 
+											<div class="row mb-10">
+												<!-- Barrier IP -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier IP</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier IP">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="ip" placeholder="IP Adress" value="" />
+													<!--end::Input-->
+												</div>
+
+												<!-- Barrier Port -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Port</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier Port  Default is 52719">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="port" placeholder="52719" value="52719" />
+													<!--end::Input-->
+												</div>
+											</div>
+											<!--end::Input group-->
+
+
+											<!--begin::Input group-->
+											<div class="row mb-10">
+												<!-- Barrier Open Code -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Open Code</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your Hex Open code ">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="open" placeholder="55 03 01 01 00 B8 B4" value="55 03 01 01 00 B8 B4" disabled  />
+													<!--end::Input-->
+												</div>
+
+												<!-- Barrier Close Code -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Close Code</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your Hex Close code ">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="close" placeholder="55 03 01 02 00 ED E7" value="55 03 01 02 00 ED E7" disabled />
+													<!--end::Input-->
+												</div>
+											</div>
+											<!--end::Input group-->
+
+											<!--begin::Input group-->
+											<div class="row mb-10">
+												<!-- Barrier IP -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Lock Code</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier lock code">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="lock" placeholder="Lock Code" value="55 03 01 01 01 A8 95" disabled  />
+													<!--end::Input-->
+												</div>
+
+												<!-- Barrier Port -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Unlock Code </span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier unlock code">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="unlock" placeholder="Unlock Code" value="55 03 01 01 02 98 F6" disabled />
+													<!--end::Input-->
+												</div>
+											</div>
+											<!--end::Input group-->
+
+
+
+											
+										</div>
+									</div>
+									<!--end::Step 1-->
+
+									<!--begin::Actions-->
+									<div class="d-flex flex-stack pt-10">
+										<!--begin::Wrapper-->
+										<div class="me-2">
+											<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
+											<i class="ki-duotone ki-arrow-left fs-3 me-1">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>Back</button>
+										</div>
+										<!--end::Wrapper-->
+
+										<!--begin::Wrapper-->
+										<div>
+											
+											<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next" id="add">Add
+											<i class="ki-duotone ki-arrow-right fs-3 ms-1 me-0">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i></button>
+										</div>
+										<!--end::Wrapper-->
+									</div>
+									<!--end::Actions-->
+								</form>
+								<!--end::Form-->
+							</div>
+							<!--end::Content-->
+						</div>
+						<!--end::Stepper-->
+					</div>
+					<!--end::Modal body-->
+				</div>
+				<!--end::Modal content-->
+			</div>
+			<!--end::Modal dialog-->
+		</div>
+		<!--end::Modal - Create App-->
+		
+		
+		<!--begin::Modal - Modify App-->
+		<div class="modal fade" id="kt_modal_modify" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-900px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header">
+
+						<!--begin::Modal title-->
+						<h2>Modify barrier information</h2>
+						<!--end::Modal title-->
+
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-duotone ki-cross fs-1">
+								<span class="path1"></span>
+								<span class="path2"></span>
+							</i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--end::Modal header-->
+
+					<!--begin::Modal body-->
+					<div class="modal-body py-lg-10 px-lg-10">
+						<!--begin::Stepper-->
+						<div class="stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_modal_create_app_stepper">
+
+							<!--begin::Content-->
+							<div class="flex-row-fluid py-lg-5 px-lg-15">
+								<!--begin::Form-->
+								<form class="form" novalidate="novalidate" id="kt_modal_create_app_form">
+									<!--begin::Step 1-->
+									<div class="current" data-kt-stepper-element="content">
+										<div class="w-100">
+											<!--begin::Input group-->
+											<div class="fv-row mb-10">
+												<!--begin::Label-->
+												<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+													<span class="required">Barrier Name</span>
+													<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier name">
+														<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>
+													</span>
+												</label>
+												<!--end::Label-->
+
+												<!--begin::Input-->
+												<input type="text" class="form-control form-control-lg form-control-solid" id="name_modify" placeholder="" value="" />
+												<!--end::Input-->
+											</div>
+											<!--end::Input group-->
+
+											<!--begin::Input group-->
+											<div class="row mb-10">
+												<!--begin::Label-->
+
+												<div class="col">
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Lane ID</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier ID">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="id_modify" placeholder="Lane ID" value="" />
+													<!--end::Input-->
+												</div>
+
+												<div class="col">
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="ms-1">Barrier Type</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier type">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--begin::Dropdown-->
+													<select class="form-select form-select-lg form-select-solid" id="type_modify">
+														<option> Type </option>
+														<option value="entry">Entry Barrier</option>
+														<option value="exit">Exit Barrier</option>
+													</select>
+													<!--end::Dropdown-->
+												</div>
+
+											</div>
+											<!--end::Input group-->
+
+											<!--begin::Input group-->
+											<div class="row mb-10">
+												<!-- Barrier IP -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier IP</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier IP">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="ip_modify" placeholder="" value="" />
+													<!--end::Input-->
+												</div>
+
+												<!-- Barrier Port -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Port</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier Port">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="port_modify" placeholder="" value="" />
+													<!--end::Input-->
+												</div>
+												</div>
+											<!--end::Input group-->
+
+
+											<!--begin::Input group-->
+											<div class="row mb-10">
+												<!-- Barrier Open Code -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Open Code</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your Hex Open code ">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="open_modify" placeholder="" value="55 03 01 01 00 B8 B4" disabled />
+													<!--end::Input-->
+												</div>
+
+												<!-- Barrier Close Code -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Close Code</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your Hex Close code ">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="close_modify" placeholder="" value="55 03 01 02 00 ED E7" disabled/>
+													<!--end::Input-->
+												</div>
+											</div>
+											<!--end::Input group-->
+
+											<!--begin::Input group-->
+												<div class="row mb-10">
+												<!-- Barrier IP -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Lock code</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier lock code">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="lock_modify" placeholder="" value="" />
+													<!--end::Input-->
+												</div>
+
+												<!-- Barrier Port -->
+												<div class="col">
+													<!--begin::Label-->
+													<label class="d-flex align-items-center fs-5 fw-semibold mb-2">
+														<span class="required">Barrier Unlock Code</span>
+														<span class="ms-1" data-bs-toggle="tooltip" title="Specify your barrier unlock code">
+															<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</span>
+													</label>
+													<!--end::Label-->
+
+													<!--begin::Input-->
+													<input type="text" class="form-control form-control-lg form-control-solid" id="unlock_modify" placeholder="" value="" />
+													<!--end::Input-->
+												</div>
+												</div>
+											<!--end::Input group-->
+
+
+										</div>
+									</div>
+									<!--end::Step 1-->
+
+									<!--begin::Actions-->
+									<div class="d-flex flex-stack pt-10">
+										<!--begin::Wrapper-->
+										<div class="me-2">
+											<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
+											<i class="ki-duotone ki-arrow-left fs-3 me-1">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>Back</button>
+										</div>
+										<!--end::Wrapper-->
+
+										<!--begin::Wrapper-->
+										<div>
+											<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
+												<span class="indicator-label">Submit
+												<i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
+													<span class="path1"></span>
+													<span class="path2"></span>
+												</i></span>
+												<span class="indicator-progress">Please wait...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+											</button>
+											<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next" id="modify">Modify
+											<i class="ki-duotone ki-arrow-right fs-3 ms-1 me-0">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i></button>
+										</div>
+										<!--end::Wrapper-->
+									</div>
+									<!--end::Actions-->
+								</form>
+								<!--end::Form-->
+							</div>
+							<!--end::Content-->
+						</div>
+						<!--end::Stepper-->
+					</div>
+					<!--end::Modal body-->
+				</div>
+				<!--end::Modal content-->
+			</div>
+			<!--end::Modal dialog-->
+		</div>
+		<!--end::Modal - Create App-->
+		
+		
+		<!--begin::Javascript-->
+			<script>var hostUrl = "assets/";</script>
+
+			<!--begin::Global Javascript Bundle(mandatory for all pages)-->
+				<script src="/static/plugins.bundle.js"></script>
+				<script src="/static/scripts.bundle.js"></script>
+				<script type="text/javascript" src="/static/config.js"></script>
+			<!--end::Global Javascript Bundle-->
+
+			<!--begin::Vendors Javascript(used for this page only)-->
+				<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/map.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/geodata/continentsLow.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/geodata/usaLow.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZonesLow.js"></script>
+				<script src="https://cdn.amcharts.com/lib/5/geodata/worldTimeZoneAreasLow.js"></script>
+			<!--end::Vendors Javascript-->
+
+			<!--begin::Custom Javascript(used for this page only)-->
+				<script src="/static/create-app.js"></script>
+				
+				<script src="/static/barrier_data.js"></script>
+			<!--end::Custom Javascript-->
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>
